@@ -1,0 +1,77 @@
+<?php
+include("session.php");
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Incluye las clases de PHPMailer
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+
+$mensaje = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
+        // Obtiene la información del carrito
+        $productos = $_SESSION['carrito'];
+        $total = 0;
+
+        // Construye un mensaje con los detalles de la compra
+        $mensaje = "Detalle de la compra:\n\n";
+
+        foreach ($productos as $producto) {
+            $nombre = $producto['nombre'];
+            $precio = $producto['precio'];
+
+            // Agrega la información del producto al mensaje
+            $mensaje .= "Producto: $nombre\n";
+            $mensaje .= "Precio: $precio\n\n";
+
+            // Calcula el total
+            $total += $precio;
+        }
+
+        $mensaje .= "Total: $" . $total;
+
+        // Genera el PDF con los detalles de la compra
+        require 'tcpdf/tcpdf.php';
+        $pdf = new TCPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('helvetica', '', 12);
+        $pdf->writeHTML($mensaje, true, false, true, false, '');
+        $pdf->Output('compra.pdf', 'F');
+
+        // Envío de correo con el archivo adjunto
+        try {
+            $mail = new PHPMailer(true);
+
+            // Configura el servidor SMTP (Gmail en este caso)
+            // ...
+
+            // Adjunta el PDF al correo
+            $mail->addAttachment('compra.pdf');
+
+            // Envía el correo
+            // ...
+
+            echo "Pago exitoso. Se ha enviado un correo con los detalles de la compra.";
+        } catch (Exception $e) {
+            echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
+        }
+
+        // Limpia el carrito después del "pago" (este paso es opcional).
+        $_SESSION['carrito'] = array();
+    } else {
+        $mensaje = "El carrito está vacío. No se pudo procesar el pago.";
+    }
+}
+?>
+<link rel="stylesheet" href="correo.css">
+<form action="" method="post">
+    <label for="correo_destino">Dirección de Correo:</label>
+    <input type="email" id="correo_destino" name="correo_destino" required>
+    <br>
+    <input type="submit" value="Enviar Correo">
+</form>
+<p><?php echo $mensaje; ?></p>

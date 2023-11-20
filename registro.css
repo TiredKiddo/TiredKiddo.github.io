@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('cbp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 100px auto;
+    background-color: rgba(92, 10, 23, 0.6);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #f7f0f5;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #f7f0f5;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #c72c41;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+form input[type="submit"] {
+    background-color: #6d0019;
+    color: #f7f0f5;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 50%;
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+    border: none;
+}
+
+form input[type="submit"]:hover {
+    background-color: #a8001f;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link a {
+    text-decoration: none;
+    color: #f7f0f5;
+}

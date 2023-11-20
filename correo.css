@@ -1,0 +1,115 @@
+/* Estilos para el formulario y el mensaje */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input[type="email"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 0, 0, 0.1);
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: rgba(128, 0, 0, 0.1);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: rgba(128, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+input[type="submit"]:active {
+    background-color: rgba(128, 0, 0, 0.7);
+    transform: scale(0.9);
+}
+
+p {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.alert-success {
+    padding: 20px;
+    background-color: rgba(0, 128, 0, 0.1);
+    color: black;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    display: block;
+    animation: fadeInOut 3s ease;
+}
+
+.alert-error {
+    padding: 20px;
+    background-color: rgba(128, 0, 0, 0.1);
+    color: black;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    display: block;
+    animation: fadeInOut 3s ease;
+}
+
+/* Estilos para la lista */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+ 
+    display: flex;
+    align-items: center;
+}
+
+li::before {
+    content: "\2022"; /* Código para el punto de la lista */
+    color: rgba(125, 211, 223, 0.685); /* Color para el punto de la lista */
+    display: list-item  ;
+    width: 1em;
+    margin-right: 10px;
+}
+
+/* Estilos para los iconos */
+.icon-success::before {
+    content: "\2714"; /* Código para el icono de éxito */
+    color: green; /* Color para el icono de éxito */
+    margin-right: 10px;
+}
+
+.icon-error::before {
+    content: "\2716"; /* Código para el icono de error */
+    color: red; /* Color para el icono de error */
+    margin-right: 10px;
+}

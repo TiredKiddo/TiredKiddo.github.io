@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('cbp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 380px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: rgba(85, 26, 26, 0.8);
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    top: 46px;
+    left: 45%;
+    transform: translateX(-50%);
+    animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: none;
+    margin-bottom: 5px;
+    color: #f5f5f5;
+    transition: color 0.3s;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #810606;
+    border-radius: 3px;
+}
+
+form input[type="submit"] {
+    background-color: #641e1e;
+    color: #f5f5f5;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 150px;
+    height: 30px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #4c1414;
+    transform: scale(1.1);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link a {
+    text-decoration: none;
+    color: #f5f5f5;
+    transition: color 0.3s;
+}
+
+.register-link a:hover {
+    color: #b57b7b;
+}
