@@ -1,2 +1,2 @@
 # TiredKiddo.github.io
-Pagina
+index.php
