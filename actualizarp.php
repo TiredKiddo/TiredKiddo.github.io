@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (mysqli_query($conexion, $query)) {
                 echo "Producto actualizado correctamente";
+            } else {
                 echo "Error al actualizar el producto: " . mysqli_error($conexion);
             }
         }
